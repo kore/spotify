@@ -1,0 +1,32 @@
+{
+    "name":         "kore/spotify",
+    "description":  "Party player interface for Spotify (Linux only)",
+    "license":      "MIT",
+    "require":      {
+        "php": ">=7.0",
+        "kore/data-object": "^1.1",
+        "sensio/distribution-bundle": "^5.0",
+        "sensio/framework-extra-bundle": "^3.0.2",
+        "symfony/monolog-bundle": "^2.8",
+        "symfony/polyfill-apcu": "^1.0",
+        "symfony/symfony": "3.1.*",
+        "qafoolabs/no-framework-bundle": "@stable"
+    },
+    "require-dev":  {
+        "phpunit/phpunit": "@stable",
+        "phpmd/phpmd": "@stable",
+        "pdepend/pdepend": "@stable",
+        "phploc/phploc": "@stable",
+        "squizlabs/php_codesniffer": "@stable",
+        "sebastian/phpcpd": "@stable"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kore\\Spotify\\": ["src/php"]
+        },
+        "classmap": ["app/AppKernel.php"]
+    },
+    "autoload-dev": {
+        "psr-4": { "Kore\\Spotify\\": "test/php/" }
+    }
+}

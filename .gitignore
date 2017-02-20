@@ -1,0 +1,6 @@
+/vendor/
+/build/
+/node_modules/
+/app/cache/
+/environment.local
+/composer.phar

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         bootstrap="vendor/autoload.php"
+         syntaxCheck="false">
+
+    <groups>
+        <exclude>
+            <group>functional</group>
+        </exclude>
+    </groups>
+
+    <testsuites>
+        <testsuite name="Tests">
+            <directory suffix="Test.php">test/php</directory>
+        </testsuite>
+    </testsuites>
+
+    <php>
+        <env name="CONFIG" value="test/environment" />
+    </php>
+
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src/php</directory>
+        </whitelist>
+    </filter>
+</phpunit>

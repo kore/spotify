@@ -1,0 +1,2 @@
+src/htdocs/assets/* -diff
+*.svg -diff
