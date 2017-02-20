@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% set version = view.version|default(0) %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kabiko</title>
+
+    <link href="/assets/bundle.min.css?v={{version}}" rel="stylesheet">
+
+    {#
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v={{version}}">
+    <link rel="icon" type="image/png" href="/assets/favicon-32x32.png?v={{version}}" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/favicon-16x16.png?v={{version}}" sizes="16x16">
+    <link rel="manifest" href="/assets/manifest.json?v={{version}}">
+    <link rel="mask-icon" href="/assets/safari-pinned-tab.svg?v={{version}}" color="#45619f">
+    <link rel="shortcut icon" href="/assets/favicon.ico?v={{version}}">
+    <meta name="apple-mobile-web-app-title" content="Kabiko">
+    <meta name="application-name" content="Kabiko">
+    <meta name="msapplication-config" content="/assets/browserconfig.xml?v={{version}}">
+    <meta name="theme-color" content="#45619f">
+    #}
+  </head>
+  <body>
+    {# May not be called "body" otherwise the twig layout error template will overwrite all wrapping code #}
+    {% block main %}{% endblock %}
+
+    <script async src="/assets/bundle.min.js?v={{version}}"></script>
+  </body>
+</html>

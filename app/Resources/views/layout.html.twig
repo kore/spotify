@@ -1,0 +1,33 @@
+{% extends "::base.html.twig" %}
+
+{% block main %}
+<div class="frontpage">
+    <header class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">
+                    <img src="/assets/title.png" class="img-responsive"
+                        alt="Spotify" width="170" height="50" title="Spotify" />
+                </a>
+            </div>
+            <div id="navbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden-xs"><a href="/#home">Start</a></li>
+                    <li class="hidden-xs"><a href="/#features">Features</a></li>
+                    <li class="hidden-xs"><a href="/#register">Testen</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer class="container footer">
+        <ul class="list-inline">
+            <li>&copy; 2016 - {{ ''|date('Y') }} Spotify</li>
+            <li><a href="@TODO">Impressum</a></li>
+            <li><a target="_blank" href="https://bitbucket.org/koredn/spotify/issues">Problem melden</a></li>
+        </ul>
+    </footer>
+</div>
+{% endblock %}
