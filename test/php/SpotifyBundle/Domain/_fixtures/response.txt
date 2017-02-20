@@ -1,0 +1,51 @@
+method return time=1487584592.064077 sender=:1.2311 -> destination=:1.2390 serial=130 reply_serial=2
+   variant       array [
+         dict entry(
+            string "mpris:trackid"
+            variant                string "spotify:track:4JdreOkSMxe3jMJsg7LhC4"
+         )
+         dict entry(
+            string "mpris:length"
+            variant                uint64 259866000
+         )
+         dict entry(
+            string "mpris:artUrl"
+            variant                string "https://open.spotify.com/image/5cec7b8cac92785b29bc4ad6f0515084479ef66e"
+         )
+         dict entry(
+            string "xesam:album"
+            variant                string "Oracle"
+         )
+         dict entry(
+            string "xesam:albumArtist"
+            variant                array [
+                  string "Michael Hedges"
+               ]
+         )
+         dict entry(
+            string "xesam:artist"
+            variant                array [
+                  string "Michael Hedges"
+               ]
+         )
+         dict entry(
+            string "xesam:autoRating"
+            variant                double 0.33
+         )
+         dict entry(
+            string "xesam:discNumber"
+            variant                int32 1
+         )
+         dict entry(
+            string "xesam:title"
+            variant                string "When I Was 4"
+         )
+         dict entry(
+            string "xesam:trackNumber"
+            variant                int32 13
+         )
+         dict entry(
+            string "xesam:url"
+            variant                string "https://open.spotify.com/track/4JdreOkSMxe3jMJsg7LhC4"
+         )
+      ]

@@ -1,0 +1,52 @@
+method return time=1487590595.175771 sender=:1.2311 -> destination=:1.2434 serial=176 reply_serial=2
+   variant       array [
+         dict entry(
+            string "mpris:trackid"
+            variant                string "spotify:track:5hYTyyh2odQKphUbMqc5gN"
+         )
+         dict entry(
+            string "mpris:length"
+            variant                uint64 175517000
+         )
+         dict entry(
+            string "mpris:artUrl"
+            variant                string "https://open.spotify.com/image/36ac52a05ada24ba55fd49d70272afa5d7c0c16d"
+         )
+         dict entry(
+            string "xesam:album"
+            variant                string "How Far I'll Go (From "Moana")"
+         )
+         dict entry(
+            string "xesam:albumArtist"
+            variant                array [
+                  string "Alessia Cara"
+               ]
+         )
+         dict entry(
+            string "xesam:artist"
+            variant                array [
+                  string "Alessia Cara"
+               ]
+         )
+         dict entry(
+            string "xesam:autoRating"
+            variant                double 0.82
+         )
+         dict entry(
+            string "xesam:discNumber"
+            variant                int32 1
+         )
+         dict entry(
+            string "xesam:title"
+            variant                string "How Far I'll Go - From "Moana""
+         )
+         dict entry(
+            string "xesam:trackNumber"
+            variant                int32 1
+         )
+         dict entry(
+            string "xesam:url"
+            variant                string "https://open.spotify.com/track/5hYTyyh2odQKphUbMqc5gN"
+         )
+      ]
+

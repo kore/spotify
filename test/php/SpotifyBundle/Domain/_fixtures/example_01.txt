@@ -1,0 +1,52 @@
+method return time=1487590383.175697 sender=:1.2311 -> destination=:1.2430 serial=166 reply_serial=2
+   variant       array [
+         dict entry(
+            string "mpris:trackid"
+            variant                string "spotify:track:48Ct0cNzeN62EDJzwg7I5E"
+         )
+         dict entry(
+            string "mpris:length"
+            variant                uint64 233813000
+         )
+         dict entry(
+            string "mpris:artUrl"
+            variant                string "https://open.spotify.com/image/c012fa04fd1f9b024d6977de1d8c81530401402f"
+         )
+         dict entry(
+            string "xesam:album"
+            variant                string "Crazy Is Catching"
+         )
+         dict entry(
+            string "xesam:albumArtist"
+            variant                array [
+                  string "Craig D'Andrea"
+               ]
+         )
+         dict entry(
+            string "xesam:artist"
+            variant                array [
+                  string "Craig D'Andrea"
+               ]
+         )
+         dict entry(
+            string "xesam:autoRating"
+            variant                double 0.5
+         )
+         dict entry(
+            string "xesam:discNumber"
+            variant                int32 1
+         )
+         dict entry(
+            string "xesam:title"
+            variant                string "Everybody Needs One"
+         )
+         dict entry(
+            string "xesam:trackNumber"
+            variant                int32 4
+         )
+         dict entry(
+            string "xesam:url"
+            variant                string "https://open.spotify.com/track/48Ct0cNzeN62EDJzwg7I5E"
+         )
+      ]
+

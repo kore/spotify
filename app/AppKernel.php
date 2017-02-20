@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new QafooLabs\Bundle\NoFrameworkBundle\QafooLabsNoFrameworkBundle(),
 
             new Kore\Spotify\CoreBundle\SpotifyCoreBundle(),
+            new Kore\Spotify\SpotifyBundle\SpotifySpotifyBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

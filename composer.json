@@ -13,7 +13,7 @@
         "qafoolabs/no-framework-bundle": "@stable"
     },
     "require-dev":  {
-        "phpunit/phpunit": "@stable",
+        "phpunit/phpunit": "^5.",
         "phpmd/phpmd": "@stable",
         "pdepend/pdepend": "@stable",
         "phploc/phploc": "@stable",

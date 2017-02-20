@@ -1,0 +1,23 @@
+{% extends "::base.html.twig" %}
+
+{% block main %}
+<div class="body" data-app="{{view|json_encode}}"> 
+  <main>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="well">
+          <p>
+            <span class="glyphicon glyphicon-hourglass"></span>
+            Initialisiere Kabiko…
+          </p>
+          <p class="text-warning">
+            Wenn nichts passiert ist entweder ein schwerwiegender Fehler
+            aufgetreten oder Sie haben kein JavaScript aktiviert. Ohne
+            JavaScript funktioniert diese Seite nicht.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}

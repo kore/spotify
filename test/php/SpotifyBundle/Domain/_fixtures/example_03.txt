@@ -1,0 +1,52 @@
+method return time=1487590632.996863 sender=:1.2311 -> destination=:1.2435 serial=180 reply_serial=2
+   variant       array [
+         dict entry(
+            string "mpris:trackid"
+            variant                string "spotify:track:6DNtNfH8hXkqOX1sjqmI7p"
+         )
+         dict entry(
+            string "mpris:length"
+            variant                uint64 185351000
+         )
+         dict entry(
+            string "mpris:artUrl"
+            variant                string "https://open.spotify.com/image/16d7eeee661a8cb548f9aca4ed683669ced0a5e8"
+         )
+         dict entry(
+            string "xesam:album"
+            variant                string "Cold Water (feat. Justin Bieber & MØ)"
+         )
+         dict entry(
+            string "xesam:albumArtist"
+            variant                array [
+                  string "Major Lazer"
+               ]
+         )
+         dict entry(
+            string "xesam:artist"
+            variant                array [
+                  string "Major Lazer"
+               ]
+         )
+         dict entry(
+            string "xesam:autoRating"
+            variant                double 0.85
+         )
+         dict entry(
+            string "xesam:discNumber"
+            variant                int32 1
+         )
+         dict entry(
+            string "xesam:title"
+            variant                string "Cold Water (feat. Justin Bieber & MØ)"
+         )
+         dict entry(
+            string "xesam:trackNumber"
+            variant                int32 1
+         )
+         dict entry(
+            string "xesam:url"
+            variant                string "https://open.spotify.com/track/6DNtNfH8hXkqOX1sjqmI7p"
+         )
+      ]
+
