@@ -26,10 +26,6 @@ class AppKernel extends Kernel
             new Kore\Spotify\SpotifyBundle\SpotifySpotifyBundle(),
         );
 
-        if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-            $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
-        }
-
         return $bundles;
     }
 
