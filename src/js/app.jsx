@@ -33,29 +33,35 @@ let App = React.createClass({
     render: function () {
         return (<div className="application">
             <header className="layout-row">
-                <div className="layout-cell logo-cell">
-                    <a href="/" className="brand">
-                        <img src="/assets/title.png" className="img-responsive"
-                            alt="Spotify" width="170" height="50" title="Spotify" />
-                    </a>
+                <div className="layout-cell hidden-xs">&nbsp;</div>
+                <div className="layout-cell text-center">
+                    <h1>Spotify Party Queue</h1>
+                </div>
+                <div className="layout-cell hidden-xs">&nbsp;</div>
+            </header>
+            <main className="layout-row">
+                <div className="layout-cell">
+                    <ul className="queue list-unstyled">
+                        <li>Track 1</li>
+                    </ul>
                 </div>
                 <div className="layout-cell">
-                    <Head {...this.props} />
+                    <ul className="playlist list-unstyled">
+                        <li>Track 1</li>
+                    </ul>
                 </div>
-            </header>
-            <div className="layout-row">
-                <div className="layout-cell side">
-                    <Navigation active={this.props.route.path} />
+                <div className="layout-cell">
+                    <h2>Search</h2>
+                    <ul className="playlist list-unstyled">
+                    </ul>
                 </div>
-                <main className="layout-cell container-fluid">
-                    <this.props.route.subcomponent {...this.props} />
-                </main>
-            </div>
+            </main>
             <footer className="layout-row">
                 <div className="layout-cell footer hidden-xs">&nbsp;</div>
-                <div className="layout-cell footer">
+                <div className="layout-cell footer text-center">
                     <Footer />
                 </div>
+                <div className="layout-cell footer hidden-xs">&nbsp;</div>
             </footer>
         </div>)
     },

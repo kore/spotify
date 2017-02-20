@@ -27,10 +27,6 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
-web_profiler:
-    toolbar: "%kernel.debug%"
-    intercept_redirects: false
-
 monolog:
     handlers:
         main:

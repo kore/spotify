@@ -16,7 +16,6 @@ import SpotifyRoute from './helper/kabikoRoute.jsx'
 import AppRouter from './router.js'
 import App from './app.jsx'
 
-import Legal from './legal.jsx'
 import Overview from './overview.jsx'
 
 (function (jQuery) {
@@ -38,7 +37,6 @@ import Overview from './overview.jsx'
             return ReactDOM.render(
                 <Router history={history}>
                     {SpotifyRoute('spotify.frontend.index', Overview)}
-                    {SpotifyRoute('spotify.frontend.legal', Legal, { public: true })}
 
                     {/* Should always be last */}
                     <Route path="*" component={App} subcomponent={NotFound} />
