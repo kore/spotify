@@ -23,7 +23,7 @@ body > .body {
 
         .layout-cell {
             display: table-cell;
-            padding: $padding-base-vertical $padding-base-horizontal;
+            vertical-align: middle;
             width: 33%;
         }
     }
@@ -32,6 +32,12 @@ body > .body {
         position: relative;
         margin-top: $padding-large-vertical;
         height: 100%;
+
+        &.layout-row .layout-cell {
+            vertical-align: top;
+            border-left: 1px solid $gray;
+            border-right: 1px solid $black;
+        }
     }
 }
 
@@ -40,7 +46,7 @@ header {
     color: $white;
 
     h1 {
-        margin: 0px;
+        margin: .2em 0px;
     }
 }
 
