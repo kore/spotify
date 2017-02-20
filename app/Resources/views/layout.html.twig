@@ -10,13 +10,6 @@
                         alt="Spotify" width="170" height="50" title="Spotify" />
                 </a>
             </div>
-            <div id="navbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden-xs"><a href="/#home">Start</a></li>
-                    <li class="hidden-xs"><a href="/#features">Features</a></li>
-                    <li class="hidden-xs"><a href="/#register">Testen</a></li>
-                </ul>
-            </div>
         </nav>
     </header>
 
@@ -24,8 +17,8 @@
 
     <footer class="container footer">
         <ul class="list-inline">
-            <li>&copy; 2016 - {{ ''|date('Y') }} Spotify</li>
-            <li><a href="@TODO">Impressum</a></li>
+            <li>&copy; 2016 - {{ ''|date('Y') }} Spotify Party Queue</li>
+            <li><a href="{{ path('spotify.frontend.legal') }}">Impressum</a></li>
             <li><a target="_blank" href="https://bitbucket.org/koredn/spotify/issues">Problem melden</a></li>
         </ul>
     </footer>

@@ -21,6 +21,8 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new QafooLabs\Bundle\NoFrameworkBundle\QafooLabsNoFrameworkBundle(),
+
+            new Kore\Spotify\CoreBundle\SpotifyCoreBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
