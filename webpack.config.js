@@ -6,10 +6,7 @@ module.exports = {
     entry: {
         bundle: [
             "bootstrap-sass!./src/bootstrap.config.js",
-            "./src/js/kabiko.js",
-        ],
-        pdf: [
-            "./src/js/pdf.js",
+            "./src/js/spotify.js",
         ],
         tests: [
             "./test/js/suite.js",

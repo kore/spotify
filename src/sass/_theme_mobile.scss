@@ -1,0 +1,29 @@
+@media (max-width: 767px) {
+    .application {
+        display: block;
+        width: 100%;
+
+        .layout-row {
+            display: block;
+            width: 100%;
+
+            .layout-cell, .layout-cell:first-child {
+                display: block;
+                width: 100%;
+                padding: $padding-base-vertical $padding-base-horizontal;
+            }
+        }
+    }
+
+    header {
+        .nav {
+            li > a {
+                border: none;
+                border-bottom: 1px solid $white;
+                border-radius: 0px;
+                margin: 0px;
+                padding: $padding-small-vertical $padding-small-horizontal;
+            }
+        }
+    }
+}

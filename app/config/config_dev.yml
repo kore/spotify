@@ -1,0 +1,48 @@
+imports:
+    - { resource: security.yml }
+
+framework:
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing_dev.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: false }
+    serializer:      { enable_annotations: false }
+    templating:
+        engines: ['twig']
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        handler_id:  session.handler.native_file
+        save_path:   "%kernel.root_dir%/../app/cache/sessions/%kernel.environment%"
+    fragments:       ~
+    http_method_override: true
+    assets: ~
+    profiler: true
+
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+
+web_profiler:
+    toolbar: "%kernel.debug%"
+    intercept_redirects: false
+
+monolog:
+    handlers:
+        main:
+            type:                fingers_crossed
+            action_level:        WARNING
+            buffer_size:         100
+            handler:             console
+        console:
+            type:                console
+            level:               NOTICE
+            verbosity_levels:
+                VERBOSITY_NORMAL:       WARNING
+                VERBOSITY_VERBOSE:      NOTICE
+                VERBOSITY_VERY_VERBOSE: INFO
+                VERBOSITY_DEBUG:        DEBUG

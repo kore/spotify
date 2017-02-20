@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Deploy">
+    <property name="executable.git" location="/usr/bin/git" />
+    <property name="deploy.host" value="privat-web" />
+    <property name="deploy.path" value="kabiko.de" />
+    <property name="deploy.asset.path" location="${basedir}/src/htdocs/assets/" />
+
+    <target name="-deploy:version:update">
+        <tstamp>
+            <format property="version.new" pattern="yyyyMMddHHmm" />
+        </tstamp>
+        <echo>Releasing version ${version.new}</echo>
+        <replaceregexp
+            file="${basedir}/environment"
+            match="^version=.*$"
+            replace="version=${version.new}"
+            byline="true"/>
+    </target>
+
+    <target name="-deploy:assets:commit">
+        <exec executable="${executable.git}" failonerror="true" dir="${basedir}">
+            <arg value="commit" />
+            <arg value="--message=Update version and bundle files for deployment" />
+            <arg value="${deploy.asset.path}" />
+            <arg value="environment" />
+        </exec>
+    </target>
+
+    <target name="deploy:git" depends="-deploy:version:update, -deploy:assets:commit" extensionOf="-deploy:main~hook">
+        <exec executable="${executable.git}" failonerror="true" dir="${basedir}">
+            <arg value="tag" />
+            <arg value="-a" />
+            <arg value="${version.new}" />
+            <arg value="-m" />
+            <arg value="Automatic tag for version ${version.new}" />
+        </exec>
+
+        <exec executable="${executable.git}" failonerror="true" dir="${basedir}">
+            <arg value="push" />
+            <arg value="origin" />
+        </exec>
+
+        <exec executable="${executable.git}" failonerror="true" dir="${basedir}">
+            <arg value="push" />
+            <arg value="origin" />
+            <arg value="--tags" />
+        </exec>
+
+        <exec executable="ssh">
+            <arg value="${deploy.host}" />
+            <arg value="touch ${deploy.path}/DEPLOY" />
+        </exec>
+        <exec executable="ssh" failonerror="true">
+            <arg value="${deploy.host}" />
+            <arg value="cd ${deploy.path} &amp;&amp; git pull &amp;&amp; git submodule update --init &amp;&amp; ant prepare" />
+        </exec>
+        <exec executable="ssh" failonerror="true">
+            <arg value="${deploy.host}" />
+            <arg value="cd ${deploy.path} &amp;&amp; bin/console cache:warmup" />
+        </exec>
+        <exec executable="ssh" failonerror="true">
+            <arg value="${deploy.host}" />
+            <arg value="rm ${deploy.path}/DEPLOY" />
+        </exec>
+        <exec executable="${basedir}/bin/announceRelease" failonerror="true">
+            <arg value="${version.new}" />
+        </exec>
+    </target>
+</project>

@@ -1,0 +1,26 @@
+.illustration-exception, .open-quote, .close-quote {
+    display: none;
+}
+
+.block, .block-exception {
+    h1, h2, h3 {
+        @extend .h3;
+        line-height: 1.4em;
+        margin-top: 0px;
+    }
+
+    .support {
+        display: none;
+    }
+
+    & > a[id] {
+        display: none;
+    }
+
+    @extend .panel;
+    @extend .panel-body;
+}
+
+.xdebug-var-dump {
+    @extend .container;
+}

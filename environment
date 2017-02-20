@@ -1,5 +1,7 @@
 env=prod
 
+locale=de
+
 test-static-checkstyle.fail-on-violation=true
 
 version=201702121242
