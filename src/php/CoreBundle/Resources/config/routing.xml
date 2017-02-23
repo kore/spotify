@@ -7,7 +7,9 @@
     <route id="spotify.frontend.index" path="/">
         <default key="_controller">SpotifyCoreBundle:Index:index</default>
     </route>
-
+    <route id="spotify.frontend.token" path="/tokens">
+        <default key="_controller">SpotifyCoreBundle:Index:index</default>
+    </route>
     <route id="spotify.frontend.legal" path="/legal">
         <default key="_controller">SpotifyCoreBundle:Index:index</default>
     </route>

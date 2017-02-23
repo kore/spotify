@@ -119,6 +119,10 @@ h1, h2, h3 {
     }
 }
 
+.bright { color: $white; }
+.dark { color: $gray-light; }
+.darker { color: $gray; }
+
 // Loading cover
 .cover {
     position: absolute;

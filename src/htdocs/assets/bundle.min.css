@@ -6142,7 +6142,7 @@ button.list-group-item-danger.active:focus {
 
 .panel, .block, .block-exception {
   margin-bottom: 28px;
-  background-color: #fff;
+  background-color: #505050;
   border: 1px solid transparent;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -7227,6 +7227,18 @@ h1:first-child, h2:first-child, h3:first-child {
 
 .box.now-playing .img-thumbnail {
   max-height: 150px;
+}
+
+.bright {
+  color: #fff;
+}
+
+.dark {
+  color: #bdbdbd;
+}
+
+.darker {
+  color: #7d7d7d;
 }
 
 .cover {

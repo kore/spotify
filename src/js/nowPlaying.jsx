@@ -30,9 +30,15 @@ let NowPlaying = React.createClass({
         return (<div className="box now-playing">
             {!this.props.data ? null : <div>
                 <img src={this.props.data.song.result['mpris:artUrl']} className="img-responsive img-thumbnail pull-right" />
-                <big>{this.props.data.song.result['xesam:title']}</big><br />
-                by {this.props.data.song.result['xesam:artist'].join(', ')}<br />
-                <small>{this.props.data.song.result['xesam:album']} by {this.props.data.song.result['xesam:albumArtist'].join(', ')}</small>
+                <big className="bright">
+                    {this.props.data.song.result['xesam:title']}
+                </big><br />
+                <span className="dark">
+                    by {this.props.data.song.result['xesam:artist'].join(', ')}
+                </span><br />
+                <small className="darker">
+                    {this.props.data.song.result['xesam:album']} by {this.props.data.song.result['xesam:albumArtist'].join(', ')}
+                </small>
             </div>}
         </div>)
     },
