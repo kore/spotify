@@ -1,0 +1,21 @@
+{% extends "::base.html.twig" %}
+
+{% block main %}
+<div class="body" data-app="{{view|json_encode}}"> 
+  <main>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div className="box">
+          <h1>Spotify Client Token</h1>
+          <p>Add the following to your <code>environment.local</code> file:</p>
+          <pre><code>
+spotify.token.access={{view.accessToken}}
+spotify.token.refresh={{view.refreshToken}}
+          </code></pre>
+          <p>And the go back to the <a href={{ path("spotify.frontend.index") }}>main interface</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+{% endblock %}

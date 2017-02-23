@@ -16,7 +16,6 @@ import SpotifyRoute from './helper/spotifyRoute.jsx'
 import AppRouter from './router.js'
 import App from './app.jsx'
 
-import Token from './token.jsx'
 import Overview from './overview.jsx'
 
 (function (jQuery) {
@@ -38,8 +37,6 @@ import Overview from './overview.jsx'
             return ReactDOM.render(
                 <Router history={history}>
                     {SpotifyRoute('spotify.frontend.index', Overview)}
-
-                    {SpotifyRoute('spotify.frontend.token', Token)}
 
                     {/* Should always be last */}
                     <Route path="*" component={App} subcomponent={NotFound} />

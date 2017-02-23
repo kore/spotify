@@ -19,6 +19,7 @@ class TokenCommand extends ContainerAwareCommand
     {
         $spotifyClientId = $this->getContainer()->getParameter('spotify.client.id');
         $spotifyClientSecret = $this->getContainer()->getParameter('spotify.client.secret');
+        $spotifyRedirectUrl = $this->getContainer()->getParameter('spotify.redirect_url');
 
         $session = new \SpotifyWebAPI\Session($spotifyClientId, $spotifyClientSecret, 'http://music.nordmann.wedding:8080/tokens');
         $output->writeln("Open the follwing URL and confirm access:");

@@ -8,3 +8,6 @@ version=201702121242
 
 spotify.client.id=
 spotify.client.secret=
+mpotify.redirect_url=http://localhost:8080/tokens
+spotify.token.access=
+spotify.token.refresh=

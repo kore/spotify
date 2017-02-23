@@ -4,7 +4,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <route id="spotify.spotify.currentSong" path="/currentSong">
+    <route id="spotify.frontend.token" path="/tokens">
+        <default key="_controller">SpotifySpotifyBundle:Index:tokens</default>
+    </route>
+
+    <route id="spotify.spotify.currentSong" path="/api/currentSong">
         <default key="_controller">SpotifySpotifyBundle:Index:currentSong</default>
     </route>
 </routes>

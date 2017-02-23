@@ -1,7 +1,5 @@
 core:
     resource: "@SpotifyCoreBundle/Resources/config/routing.xml"
-    prefix:   /
 
 api:
     resource: "@SpotifySpotifyBundle/Resources/config/routing.xml"
-    prefix:   /api/

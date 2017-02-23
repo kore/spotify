@@ -26,4 +26,21 @@ class IndexController extends Controller
             )
         );
     }
+
+    public function tokensAction(Request $request)
+    {
+        $session = new \SpotifyWebAPI\Session(
+            $this->getParameter('spotify.client.id'),
+            $this->getParameter('spotify.client.secret'),
+            $this->getParameter('spotify.redirect_url')
+        );
+		$api = new \SpotifyWebAPI\SpotifyWebAPI();
+
+		$session->requestAccessToken($request->get('code'));
+
+        return [
+            'accessToken' => $session->getAccessToken(),
+            'refreshToken' => $session->getRefreshToken(),
+        ];
+    }
 }
