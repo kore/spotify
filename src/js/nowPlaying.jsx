@@ -16,7 +16,7 @@ let NowPlaying = React.createClass({
             (function () {
                 this.props.loader.reload()
             }).bind(this),
-            1000
+            5000
         )
     },
     
