@@ -34,7 +34,6 @@ class IndexController extends Controller
             $this->getParameter('spotify.client.secret'),
             $this->getParameter('spotify.redirect_url')
         );
-		$api = new \SpotifyWebAPI\SpotifyWebAPI();
 
 		$session->requestAccessToken($request->get('code'));
 

@@ -11,4 +11,7 @@
     <route id="spotify.spotify.currentSong" path="/api/currentSong">
         <default key="_controller">SpotifySpotifyBundle:Index:currentSong</default>
     </route>
+    <route id="spotify.spotify.myPlaylists" path="/api/myPlaylists">
+        <default key="_controller">SpotifySpotifyBundle:Api:myPlaylists</default>
+    </route>
 </routes>

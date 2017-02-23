@@ -8,8 +8,9 @@
     </parameters-->
 
     <services>
-        <service id="kabiko.core.exception_listener" class="Kore\Spotify\SpotifyBundle\EventListener\JsonExceptionListener">
-            <tag name="kernel.event_listener" event="kernel.exception" method="onKernelException" priority="100"/>
+        <service id="spotify" class="Kore\Spotify\SpotifyBundle\Domain\Spotify">
+            <argument>%spotify.token.access%</argument>
+            <argument>%spotify.token.refresh%</argument>
         </service>
     </services>
 </container>
