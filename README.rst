@@ -41,15 +41,6 @@ project is prepared but can also be executed continuously using::
 This also compiles the SASS from the project and Bootstrap file into a single
 CSS file.
 
-Favicon Generation
-------------------
-
-To update the favicon and all realted assets go to
-https://realfavicongenerator.net/, upload ``src/layout/favicon.svg`` and
-configure accordingly with the color ``#45619f``. Put everything intos
-``src/assets/`` folder.
-
-
 Trying Out The Project
 ----------------------
 
