@@ -12,7 +12,7 @@ import httpBuildQuery from './helper/httpBuildQuery.js'
 
 import NotFound from './helper/not_found.jsx'
 
-import SpotifyRoute from './helper/kabikoRoute.jsx'
+import SpotifyRoute from './helper/spotifyRoute.jsx'
 import AppRouter from './router.js'
 import App from './app.jsx'
 

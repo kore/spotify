@@ -1392,12 +1392,12 @@ textarea {
 }
 
 a {
-  color: #23400C;
+  color: #69934A;
   text-decoration: none;
 }
 
 a:hover, a:focus {
-  color: #69934A;
+  color: #B3D897;
   text-decoration: underline;
 }
 
@@ -1539,19 +1539,19 @@ h6 .small, .h6 small,
 }
 
 h1, .h1 {
-  font-size: 52px;
+  font-size: 30px;
 }
 
 h2, .h2 {
-  font-size: 43px;
+  font-size: 27px;
 }
 
 h3, .h3, .block h1, .block h2, .block h3, .block-exception h1, .block-exception h2, .block-exception h3 {
-  font-size: 34px;
+  font-size: 24px;
 }
 
 h4, .h4 {
-  font-size: 25px;
+  font-size: 22px;
 }
 
 h5, .h5 {
@@ -3971,7 +3971,7 @@ fieldset[disabled] .btn-danger.focus {
 }
 
 .btn-link {
-  color: #23400C;
+  color: #69934A;
   font-weight: normal;
   border-radius: 0;
 }
@@ -3988,7 +3988,7 @@ fieldset[disabled] .btn-link {
 }
 
 .btn-link:hover, .btn-link:focus {
-  color: #69934A;
+  color: #B3D897;
   text-decoration: underline;
   background-color: transparent;
 }
@@ -4634,7 +4634,7 @@ tbody.collapse.in {
 
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
   background-color: #ddd;
-  border-color: #23400C;
+  border-color: #69934A;
 }
 
 .nav .nav-divider {
@@ -5637,7 +5637,7 @@ a.label:hover, a.label:focus {
   vertical-align: middle;
   white-space: nowrap;
   text-align: center;
-  background-color: #23400C;
+  background-color: #69934A;
   border-radius: 10px;
 }
 
@@ -5658,7 +5658,7 @@ a.label:hover, a.label:focus {
 
 .list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
-  color: #23400C;
+  color: #69934A;
   background-color: #fff;
 }
 
@@ -7139,6 +7139,7 @@ body > .body {
 }
 
 .application .layout-row .layout-cell {
+  padding: 14px 16px;
   display: table-cell;
   vertical-align: middle;
   width: 33%;
@@ -7152,8 +7153,6 @@ body > .body {
 
 .application main.layout-row .layout-cell {
   vertical-align: top;
-  border-left: 1px solid #7d7d7d;
-  border-right: 1px solid #111;
 }
 
 header {
@@ -7202,6 +7201,61 @@ main .nav {
   color: #2b2b2b;
   padding: 8px 12px;
   font-size: 17px;
+}
+
+h1, h2, h3 {
+  text-transform: uppercase;
+  margin: 1em 0 .5em 0;
+  border-bottom: 2px solid #69934A;
+  color: #bdbdbd;
+  text-shadow: 0 -1px 1px #111, 0 1px 1px #fff;
+}
+
+h1:first-child, h2:first-child, h3:first-child {
+  margin-top: 0;
+}
+
+.box {
+  display: block;
+  position: relative;
+  padding: 8px 12px;
+}
+
+.box.now-playing {
+  min-height: 150px;
+}
+
+.box.now-playing .img-thumbnail {
+  max-height: 150px;
+}
+
+.cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 900;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+}
+
+.cover big {
+  opacity: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cover.cover-loading {
+  background-color: rgba(17, 17, 17, 0.7);
+  color: #f5f5f5;
+}
+
+.cover.cover-error {
+  background-color: rgba(105, 38, 57, 0.3);
+  color: #692639;
 }
 
 @media (max-width: 767px) {

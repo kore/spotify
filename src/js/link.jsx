@@ -24,10 +24,10 @@ let SymfonyLink = React.createClass({
         let router = Router.get()
         let childProps = _.omit(this.props, ['route', 'params'])
         let parameters = this.props.params
-        if (('kabikoRoute' in window) &&
-            ('parameters' in window.kabikoRoute)) {
+        if (('spotifyRoute' in window) &&
+            ('parameters' in window.spotifyRoute)) {
             parameters = _.extend(
-                _.pick(window.kabikoRoute.parameters, ['season']),
+                _.pick(window.spotifyRoute.parameters, ['season']),
                 parameters
             )
         }

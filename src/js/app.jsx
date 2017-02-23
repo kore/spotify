@@ -3,11 +3,9 @@
 import React from 'react'
 import jQuery from 'jquery'
 
-import Head from './partials/head.jsx'
-import Navigation from './partials/navigation.jsx'
-import Footer from './partials/footer.jsx'
-
 import Router from './router.js'
+
+import NowPlaying from './nowPlaying.jsx'
 
 let App = React.createClass({
     propTypes: {
@@ -32,37 +30,27 @@ let App = React.createClass({
 
     render: function () {
         return (<div className="application">
-            <header className="layout-row">
-                <div className="layout-cell hidden-xs">&nbsp;</div>
-                <div className="layout-cell text-center">
-                    <h1>Spotify Party Queue</h1>
-                </div>
-                <div className="layout-cell hidden-xs">&nbsp;</div>
-            </header>
             <main className="layout-row">
                 <div className="layout-cell">
+                    <h1>Now Playing</h1>
+					<NowPlaying />
+                    <h1>Up Next</h1>
                     <ul className="queue list-unstyled">
                         <li>Track 1</li>
                     </ul>
                 </div>
                 <div className="layout-cell">
+                    <h1>Songs In Playlist</h1>
                     <ul className="playlist list-unstyled">
                         <li>Track 1</li>
                     </ul>
                 </div>
                 <div className="layout-cell">
-                    <h2>Search</h2>
+                    <h1>Search</h1>
                     <ul className="playlist list-unstyled">
                     </ul>
                 </div>
             </main>
-            <footer className="layout-row">
-                <div className="layout-cell footer hidden-xs">&nbsp;</div>
-                <div className="layout-cell footer text-center">
-                    <Footer />
-                </div>
-                <div className="layout-cell footer hidden-xs">&nbsp;</div>
-            </footer>
         </div>)
     },
 })

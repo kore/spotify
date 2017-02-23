@@ -6,11 +6,11 @@ import React from "react"
 
 import RouteListener from './routeListener.jsx'
 
-let KabikoRouter = function (route, component, additionalProps) {
+let SpotifyRouter = function (route, component, additionalProps) {
     additionalProps = additionalProps || {}
 
     return (<Route
-        path={window.kabikoRouter.route(route)}
+        path={window.spotifyRouter.route(route)}
         component={RouteListener}
         subcomponent={component}
         routeIdentifier={route}
@@ -18,4 +18,4 @@ let KabikoRouter = function (route, component, additionalProps) {
     />)
 }
 
-export default KabikoRouter
+export default SpotifyRouter

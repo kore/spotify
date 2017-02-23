@@ -89,15 +89,15 @@ let Router = function (history, routes, session) {
         return this.session
     }
 
-    window.kabikoRouter = this
+    window.spotifyRouter = this
 }
 
 Router.get = function () {
-    if (!window.kabikoRouter) {
+    if (!window.spotifyRouter) {
         throw new Error("Router not yet intialized")
     }
 
-    return window.kabikoRouter
+    return window.spotifyRouter
 }
 
 export default Router

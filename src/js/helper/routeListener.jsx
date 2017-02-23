@@ -33,7 +33,7 @@ let RouteListener = React.createClass({
             props.params
         )
 
-        window.kabikoRoute = {
+        window.spotifyRoute = {
             path: props.route.path,
             route: props.route.routeIdentifier,
             parameters: parameters,

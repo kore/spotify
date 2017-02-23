@@ -21,7 +21,7 @@ let Parameter = function (WrappedComponent, configuration) {
 
         push: function (parameters, route) {
             route = route || this.currentRoute()
-            window.kabikoRouter.push(
+            window.spotifyRouter.push(
                 route,
                 this.mergeParameters(parameters)
             )
@@ -29,27 +29,27 @@ let Parameter = function (WrappedComponent, configuration) {
 
         replace: function (parameters, route) {
             route = route || this.currentRoute()
-            window.kabikoRouter.replace(
+            window.spotifyRouter.replace(
                 route,
                 this.mergeParameters(parameters)
             )
         },
 
         mergeParameters: function (parameters) {
-            return _.extend({}, window.kabikoRoute.parameters, parameters)
+            return _.extend({}, window.spotifyRoute.parameters, parameters)
         },
 
         currentRoute: function () {
-            return window.kabikoRoute.route
+            return window.spotifyRoute.route
         },
 
         render: function () {
-            if (!window.kabikoRoute) {
-                throw new Error("You forgot to use KabikoRoute in app.jquery.js for the current route.")
+            if (!window.spotifyRoute) {
+                throw new Error("You forgot to use SpotifyRoute in app.jquery.js for the current route.")
             }
 
             let parameters = _.pick(
-                _.extend({}, this.props.parameters, window.kabikoRoute.parameters),
+                _.extend({}, this.props.parameters, window.spotifyRoute.parameters),
                 configuration.used
             )
 

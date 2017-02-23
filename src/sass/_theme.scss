@@ -22,6 +22,7 @@ body > .body {
         display: table-row;
 
         .layout-cell {
+            padding: $padding-large-vertical $padding-large-horizontal;
             display: table-cell;
             vertical-align: middle;
             width: 33%;
@@ -35,8 +36,6 @@ body > .body {
 
         &.layout-row .layout-cell {
             vertical-align: top;
-            border-left: 1px solid $gray;
-            border-right: 1px solid $black;
         }
     }
 }
@@ -91,4 +90,66 @@ main {
     color: $gray-darker;
     padding: $padding-base-vertical $padding-base-horizontal;
     font-size: $font-size-small;
+}
+
+h1, h2, h3 {
+    text-transform: uppercase;
+    margin: 1em 0 .5em 0;
+    border-bottom: 2px solid $primary-light;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+	color: $gray-light;
+    text-shadow: 0 -1px 1px $black, 0 1px 1px $white;
+}
+
+.box {
+    display: block;
+    position: relative;
+    padding: $padding-base-vertical $padding-base-horizontal;
+
+    &.now-playing {
+        min-height: 150px;
+
+        .img-thumbnail {
+            max-height: 150px;
+        }
+    }
+}
+
+// Loading cover
+.cover {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    // Lower the $zindex-modal
+    z-index: 900;
+
+    margin: 0;
+    padding: 0;
+
+    top: 0;
+    left: 0;
+
+    big {
+        opacity: 1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &.cover-loading {
+        background-color: transparentize($black, 0.3);
+        color: $text-color;
+    }
+
+    &.cover-error {
+        background-color: transparentize($red, 0.7);
+        color: $red;
+    }
 }
