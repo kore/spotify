@@ -6,6 +6,7 @@ import Api from '../api.js'
 
 let Playlist = function () {
     this.data = null
+    this.current = null
     let handlers = []
 
     this.attach = function (handler) {
@@ -34,9 +35,18 @@ let Playlist = function () {
     }
 
     this.setCurrentSong = function (id) {
-        // @TODO: Check if song is actually in playlist?
-        this.current = id
+        this.current = id.replace('spotify:track:', '')
         this.trigger()
+    }
+
+    this.getQueue = function () {
+        if (!this.current || !this.data) {
+            return []
+        }
+
+        let queuePosition = _.findIndex(this.data.tracks.items, { track: { id: this.current } });
+        console.log(queuePosition, this.current)
+        return this.data.tracks.items.slice(queuePosition, queuePosition + 10)
     }
 }
 

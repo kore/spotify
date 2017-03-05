@@ -7270,6 +7270,10 @@ h1:first-child, h2:first-child, h3:first-child {
   padding: 8px 12px;
 }
 
+.playlist li.current {
+  background-color: #426725;
+}
+
 .playlist li:hover {
   background-color: #505050;
 }

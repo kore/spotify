@@ -2,11 +2,10 @@
 
 import React from "react"
 
-import Playlist from "./playlist.js"
 import PlaylistDecorator from "./decorator.jsx"
 import Track from "./track.jsx"
 
-let SearchablePlaylist = React.createClass({
+let Queue = React.createClass({
     propTypes: {
         playlist: React.PropTypes.object.isRequired,
     },
@@ -16,10 +15,13 @@ let SearchablePlaylist = React.createClass({
             return null
         }
 
+        console.log(this.props.playlist.data)
+        let tracks = this.props.playlist.getQueue()
+
         return (<div>
-            <h1>Songs</h1>
+            <h1>Play Queue</h1>
             <ul className="playlist list-unstyled">
-            {_.map(this.props.playlist.data.tracks.items, (function (track) {
+            {_.map(tracks, (function (track) {
                 return <Track track={track.track} current={this.props.playlist.current} key={track.track.id} />
             }).bind(this))}
             </ul>
@@ -27,4 +29,4 @@ let SearchablePlaylist = React.createClass({
     },
 })
 
-export default PlaylistDecorator(SearchablePlaylist)
+export default PlaylistDecorator(Queue)

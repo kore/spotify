@@ -155,6 +155,10 @@ h1, h2, h3 {
     li {
         padding: $padding-base-vertical $padding-base-horizontal;
 
+        &.current {
+            background-color: $primary;
+        }
+
         &:hover {
             background-color: $gray-dark;
         }
