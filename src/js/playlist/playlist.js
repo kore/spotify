@@ -2,16 +2,41 @@
 
 import _ from 'lodash'
 
+import Api from '../api.js'
+
 let Playlist = function () {
-    this.id = null
-    this.songs = null
-    this.current = null
+    this.data = null
+    let handlers = []
+
+    this.attach = function (handler) {
+        handlers.push(handler)
+        handler(this)
+    }
+
+    this.detach = function (handler) {
+        let index = handlers.indexOf(handler)
+        if (index > -1) {
+            handlers.splice(index)
+        }
+    }
+
+    this.trigger = function () {
+        for (let i = 0; i < handlers.length; ++i) {
+            handlers[i](this)
+        }
+    }
+
+    this.setCurrentPlaylist = function (id) {
+        Api.get().request('GET', 'spotify.api.playlist', {playlist: id}, null, (function (data) {
+            this.data = data
+            this.trigger()
+        }).bind(this))
+    }
 
     this.setCurrentSong = function (id) {
-        console.log("Set current song", id)
-
         // @TODO: Check if song is actually in playlist?
         this.current = id
+        this.trigger()
     }
 }
 

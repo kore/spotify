@@ -59,6 +59,6 @@ let NowPlaying = React.createClass({
 })
 
 export default AjaxDecorator(NowPlaying, {
-        route: 'spotify.spotify.currentSong',
+        route: 'spotify.api.currentSong',
     }
 )

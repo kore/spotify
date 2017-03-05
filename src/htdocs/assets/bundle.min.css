@@ -3018,7 +3018,7 @@ output {
   padding-top: 9px;
   font-size: 20px;
   line-height: 1.42857;
-  color: #f5f5f5;
+  color: #111;
 }
 
 .form-control {
@@ -3028,7 +3028,7 @@ output {
   padding: 8px 12px;
   font-size: 20px;
   line-height: 1.42857;
-  color: #f5f5f5;
+  color: #111;
   background-color: #fff;
   background-image: none;
   border: 1px solid #ddd;
@@ -3633,7 +3633,7 @@ select[multiple].input-lg,
 }
 
 .btn:hover, .btn:focus, .btn.focus {
-  color: #f5f5f5;
+  color: #111;
   text-decoration: none;
 }
 
@@ -3659,26 +3659,26 @@ fieldset[disabled] a.btn {
 }
 
 .btn-default {
-  color: #f5f5f5;
+  color: #111;
   background-color: #ddd;
   border-color: #ddd;
 }
 
 .btn-default:focus, .btn-default.focus {
-  color: #f5f5f5;
+  color: #111;
   background-color: #c4c4c4;
   border-color: #9d9d9d;
 }
 
 .btn-default:hover {
-  color: #f5f5f5;
+  color: #111;
   background-color: #c4c4c4;
   border-color: #bebebe;
 }
 
 .btn-default:active, .btn-default.active,
 .open > .btn-default.dropdown-toggle {
-  color: #f5f5f5;
+  color: #111;
   background-color: #c4c4c4;
   border-color: #bebebe;
 }
@@ -3687,7 +3687,7 @@ fieldset[disabled] a.btn {
 .open > .btn-default.dropdown-toggle:hover,
 .open > .btn-default.dropdown-toggle:focus,
 .open > .btn-default.dropdown-toggle.focus {
-  color: #f5f5f5;
+  color: #111;
   background-color: #b2b2b2;
   border-color: #9d9d9d;
 }
@@ -3707,7 +3707,7 @@ fieldset[disabled] .btn-default.focus {
 
 .btn-default .badge {
   color: #ddd;
-  background-color: #f5f5f5;
+  background-color: #111;
 }
 
 .btn-primary {
@@ -4503,7 +4503,7 @@ tbody.collapse.in {
   font-size: 20px;
   font-weight: normal;
   line-height: 1;
-  color: #f5f5f5;
+  color: #111;
   text-align: center;
   background-color: #ddd;
   border: 1px solid #ddd;
@@ -7130,19 +7130,44 @@ body > .body {
 .application {
   height: 100%;
   width: 100%;
-  display: table;
 }
 
 .application .layout-row {
+  height: 100%;
   width: 100%;
-  display: table-row;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: stretch;
 }
 
-.application .layout-row .layout-cell {
-  padding: 14px 16px;
-  display: table-cell;
-  vertical-align: middle;
-  width: 33%;
+.application .layout-row .layout-column {
+  margin: 0;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-basis: 0;
+  flex-grow: 1;
+}
+
+.application .layout-row .layout-column .layout-cell {
+  margin: 0;
+  padding: 0;
+  flex-basis: 0;
+  flex-grow: 0;
+}
+
+.application .layout-row .layout-column .layout-cell.scroll {
+  align-self: stretch;
+  flex-grow: 1;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .application main {
@@ -7239,6 +7264,14 @@ h1:first-child, h2:first-child, h3:first-child {
 
 .darker {
   color: #7d7d7d;
+}
+
+.playlist li {
+  padding: 8px 12px;
+}
+
+.playlist li:hover {
+  background-color: #505050;
 }
 
 .cover {

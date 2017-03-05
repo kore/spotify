@@ -14,11 +14,16 @@ use Kore\Spotify\SpotifyBundle\Domain\DbusResponseParser;
 
 class ApiController extends Controller
 {
-    public function myPlaylistsAction()
+    public function playlistAction(string $playlist)
     {
         $spotify = $this->get('spotify');
+
+        if (!preg_match('(^spotify:user:(?P<user>[^:]+):playlist:(?P<playlist>[^:]+)$)', $playlist, $match)) {
+            throw new \OutOfBoundsException("Invalid playlist specifier");
+        }
+
         return new JsonResponse(
-            $spotify->getMyPlaylists()
+            $spotify->getUserPlaylist($match['user'], $match['playlist'])
         );
     }
 }
