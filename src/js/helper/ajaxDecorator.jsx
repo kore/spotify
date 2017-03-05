@@ -69,7 +69,7 @@ let Ajax = function (WrappedComponent, configuration) {
                     this.setState({
                         error: null,
                         loading: false,
-                        data: data
+                        data: data,
                     })
                 }).bind(this),
                 error: (function (response) {
@@ -93,14 +93,14 @@ let Ajax = function (WrappedComponent, configuration) {
         },
 
         render: function () {
-            return <WrappedComponent
+            return (<WrappedComponent
                 loader={this}
                 loading={this.state.loading}
                 error={this.state.error}
                 data={this.state.data}
                 {...this.props}>
                 {this.children}
-            </WrappedComponent>
+            </WrappedComponent>)
         },
     })
 

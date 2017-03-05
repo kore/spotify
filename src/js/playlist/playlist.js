@@ -28,7 +28,7 @@ let Playlist = function () {
     }
 
     this.setCurrentPlaylist = function (id) {
-        Api.get().request('GET', 'spotify.api.playlist', {playlist: id}, null, (function (data) {
+        Api.get().request('GET', 'spotify.api.playlist', { playlist: id }, null, (function (data) {
             this.data = data
             this.trigger()
         }).bind(this))
@@ -44,7 +44,7 @@ let Playlist = function () {
             return []
         }
 
-        let queuePosition = _.findIndex(this.data.tracks.items, { track: { id: this.current } });
+        let queuePosition = _.findIndex(this.data.tracks.items, { track: { id: this.current } })
         console.log(queuePosition, this.current)
         return this.data.tracks.items.slice(queuePosition, queuePosition + 10)
     }

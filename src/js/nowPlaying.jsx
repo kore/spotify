@@ -1,9 +1,9 @@
 'use strict'
 
 import React from "react"
+import _ from "lodash"
 
 import AjaxDecorator from './helper/ajaxDecorator.jsx'
-import Box from './helper/box.jsx'
 
 import Playlist from "./playlist/playlist.js"
 
@@ -26,14 +26,13 @@ let NowPlaying = React.createClass({
         return !this.props.data ||
             !_.isEqual(this.props.data.song.result, nextProps.data.song.result)
     },
-    
 
     componentDidUpdate: function () {
         if (this.props.data) {
             Playlist.get().setCurrentSong(this.props.data.song.result['mpris:trackid'])
         }
     },
-    
+
     componentWillUnmount: function () {
         window.clearInterval(this.interval)
     },
@@ -43,7 +42,8 @@ let NowPlaying = React.createClass({
     render: function () {
         return (<div className="box now-playing">
             {!this.props.data ? null : <div>
-                <img src={this.props.data.song.result['mpris:artUrl']} className="img-responsive img-thumbnail pull-right" />
+                <img src={this.props.data.song.result['mpris:artUrl']}
+                    className="img-responsive img-thumbnail pull-right" />
                 <big className="bright">
                     {this.props.data.song.result['xesam:title']}
                 </big><br />
@@ -51,7 +51,8 @@ let NowPlaying = React.createClass({
                     by {this.props.data.song.result['xesam:artist'].join(', ')}
                 </span><br />
                 <small className="darker">
-                    {this.props.data.song.result['xesam:album']} by {this.props.data.song.result['xesam:albumArtist'].join(', ')}
+                    {this.props.data.song.result['xesam:album']} by
+                    &nbsp;{this.props.data.song.result['xesam:albumArtist'].join(', ')}
                 </small>
             </div>}
         </div>)
@@ -59,6 +60,5 @@ let NowPlaying = React.createClass({
 })
 
 export default AjaxDecorator(NowPlaying, {
-        route: 'spotify.api.currentSong',
-    }
-)
+    route: 'spotify.api.currentSong',
+})
