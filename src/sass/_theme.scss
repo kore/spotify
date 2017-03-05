@@ -15,17 +15,45 @@ body > .body {
     height: 100%;
     width: 100%;
 
-    display: table;
-
     .layout-row {
+        height: 100%;
         width: 100%;
-        display: table-row;
+        margin: 0;
+        padding: 0;
 
-        .layout-cell {
-            padding: $padding-large-vertical $padding-large-horizontal;
-            display: table-cell;
-            vertical-align: middle;
-            width: 33%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        align-items: stretch;
+
+        .layout-column {
+            margin: 0;
+            padding: $padding-base-vertical $padding-base-horizontal;
+
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: stretch;
+            flex-basis: 0;
+            flex-grow: 1;
+
+            .layout-cell {
+                margin: 0;
+                padding: 0;
+
+                flex-basis: 0;
+                flex-grow: 0;
+
+                &.scroll {
+                    align-self: stretch;
+                    flex-grow: 1;
+
+                    overflow-x: hidden;
+                    overflow-y: scroll;
+                }
+            }
         }
     }
 
@@ -122,6 +150,16 @@ h1, h2, h3 {
 .bright { color: $white; }
 .dark { color: $gray-light; }
 .darker { color: $gray; }
+
+.playlist {
+    li {
+        padding: $padding-base-vertical $padding-base-horizontal;
+
+        &:hover {
+            background-color: $gray-dark;
+        }
+    }
+}
 
 // Loading cover
 .cover {
