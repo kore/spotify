@@ -2,20 +2,38 @@
 
 namespace Kore\Spotify\SpotifyBundle\Domain;
 
+use SpotifyWebAPI\Session;
+
 class Spotify
 {
-    private $accessToken;
-    private $refreshToken;
+    private $session;
 
-    public function __construct(string $accessToken, string $refreshToken)
+    public function __construct(Session $session)
     {
-        $this->accessToken = $accessToken;
-        $this->refreshToken = $refreshToken;
+        $this->session = $session;
 
 		$this->api = new \SpotifyWebAPI\SpotifyWebAPI();
-        $this->api->setAccessToken($accessToken);
+        // $this->api->setAccessToken($accessToken);
+    }
 
-        // @TODO: Find a sensible way to refresh the token
+    public function getAuthorizeUrl(): string
+    {
+        return $this->session->getAuthorizeUrl([
+            'scopes' => [
+                'playlist-read-private',
+                'playlist-modify-private',
+            ]
+        ]);
+    }
+
+    public function isAuthentificated(): bool
+    {
+        try {
+            $this->me();
+            return true;
+        } catch (\SpotifyWebAPI\SpotifyWebAPIException $e) {
+            return false;
+        }
     }
 
     public function __call(string $method, array $arguments)

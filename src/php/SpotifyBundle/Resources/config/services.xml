@@ -4,13 +4,20 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--parameters>
-    </parameters-->
+    <parameters>
+        <parameter key="spotify.client.id"></parameter>
+        <parameter key="spotify.client.secret"></parameter>
+    </parameters>
 
     <services>
         <service id="spotify" class="Kore\Spotify\SpotifyBundle\Domain\Spotify">
-            <argument>%spotify.token.access%</argument>
-            <argument>%spotify.token.refresh%</argument>
+            <argument type="service" id="spotify.session" />
+        </service>
+
+        <service id="spotify.session" class="SpotifyWebAPI\Session">
+            <argument>%spotify.client.id%</argument>
+            <argument>%spotify.client.secret%</argument>
+            <argument type="expression">service('router').generate('spotify.frontend.token', [], 0)</argument>
         </service>
     </services>
 </container>

@@ -16,6 +16,23 @@ class IndexController extends Controller
     public function indexAction(TokenContext $context)
     {
         $router = $this->get('router');
+        $spotify = $this->get('spotify');
+
+        $hasClientConfiguration = $this->getParameter('spotify.client.id') &&
+            $this->getParameter('spotify.client.secret');
+
+        $isAuthentificated = false;
+        if ($hasClientConfiguration) {
+            $isAuthentificated = $spotify->isAuthentificated();
+        }
+
+        $authentifactionUrl = null;
+        $user = null;
+        if (!$isAuthentificated) {
+            $authentifactionUrl = $spotify->getAuthorizeUrl();
+        } else {
+            $user = $spotify->me();
+        }
 
         return new Context([
             'version' => $this->getParameter('version'),
@@ -25,6 +42,12 @@ class IndexController extends Controller
                 },
                 iterator_to_array($router->getRouteCollection())
             ),
+            'session' => [
+                'hasClientConfiguration' => $hasClientConfiguration,
+                'isAuthentificated' => $isAuthentificated,
+                'authentifactionUrl' => $authentifactionUrl,
+                'user' => $user,
+            ],
         ]);
     }
 }

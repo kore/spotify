@@ -44,6 +44,12 @@ let Router = function (history, routes, session) {
         )
     }
 
+    this.url = function (route, parameters) {
+        let location = window.location
+
+        return location.protocol + '//' + location.host + this.path(route, parameters)
+    }
+
     this.query = function (route, parameters) {
         let allParameters = _.extend(this.parameters, parameters || {})
 
