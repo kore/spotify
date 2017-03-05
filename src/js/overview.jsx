@@ -3,6 +3,7 @@
 import React from "react"
 
 import NowPlaying from './nowPlaying.jsx'
+import SearchablePlaylist from './playlist/searchable.jsx'
 
 let Overview = React.createClass({
     render: function () {
@@ -16,10 +17,7 @@ let Overview = React.createClass({
                 </ul>
             </div>
             <div className="layout-cell">
-                <h1>Songs In Playlist</h1>
-                <ul className="playlist list-unstyled">
-                    <li>Track 1</li>
-                </ul>
+                <SearchablePlaylist />
             </div>
             <div className="layout-cell">
                 <h1>Search</h1>

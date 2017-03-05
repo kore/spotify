@@ -5,6 +5,8 @@ import React from "react"
 import AjaxDecorator from './helper/ajaxDecorator.jsx'
 import Box from './helper/box.jsx'
 
+import Playlist from "./playlist/playlist.js"
+
 let NowPlaying = React.createClass({
     propTypes: {
         data: React.PropTypes.object,
@@ -18,6 +20,18 @@ let NowPlaying = React.createClass({
             }).bind(this),
             5000
         )
+    },
+
+    shouldComponentUpdate: function (nextProps) {
+        return !this.props.data ||
+            !_.isEqual(this.props.data.song.result, nextProps.data.song.result)
+    },
+    
+
+    componentDidUpdate: function () {
+        if (this.props.data) {
+            Playlist.get().setCurrentSong(this.props.data.song.result['mpris:trackid'])
+        }
     },
     
     componentWillUnmount: function () {
