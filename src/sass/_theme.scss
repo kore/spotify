@@ -29,7 +29,7 @@ body > .body {
 
         .layout-column {
             margin: 0;
-            padding: $padding-base-vertical $padding-base-horizontal;
+            padding: 0;
 
             display: flex;
             flex-direction: column;
@@ -41,7 +41,7 @@ body > .body {
 
             .layout-cell {
                 margin: 0;
-                padding: 0;
+                padding: $padding-base-vertical $padding-base-horizontal;
 
                 flex-basis: 0;
                 flex-grow: 0;

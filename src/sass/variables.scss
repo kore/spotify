@@ -206,23 +206,23 @@ $btn-link-disabled-color:        $gray-light;
 //##
 
 //** `<input>` background color
-$input-bg:                       $white;
+$input-bg:                       $black;
 //** `<input disabled>` background color
-$input-bg-disabled:              $gray-lighter;
+$input-bg-disabled:              $gray-dark;
 
 //** Text color for `<input>`s
-$input-color:                    $black;
+$input-color:                    $text-color;
 //** `<input>` border color
-$input-border:                   $gray-lighter;
+$input-border:                   $gray-dark;
 
 // TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius
 // This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
-$input-border-radius:            $border-radius-base;
+$input-border-radius:            0;
 //** Large `.form-control` border radius
-$input-border-radius-large:      $border-radius-large;
+$input-border-radius-large:      0;
 //** Small `.form-control` border radius
-$input-border-radius-small:      $border-radius-small;
+$input-border-radius-small:      0;
 
 //** Border color for inputs on focus
 $input-border-focus:             $primary;

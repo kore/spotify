@@ -3018,7 +3018,7 @@ output {
   padding-top: 9px;
   font-size: 20px;
   line-height: 1.42857;
-  color: #111;
+  color: #f5f5f5;
 }
 
 .form-control {
@@ -3028,11 +3028,11 @@ output {
   padding: 8px 12px;
   font-size: 20px;
   line-height: 1.42857;
-  color: #111;
-  background-color: #fff;
+  color: #f5f5f5;
+  background-color: #111;
   background-image: none;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 1px solid #505050;
+  border-radius: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
@@ -3067,7 +3067,7 @@ output {
 
 .form-control[disabled], .form-control[readonly],
 fieldset[disabled] .form-control {
-  background-color: #ddd;
+  background-color: #505050;
   opacity: 1;
 }
 
@@ -3241,7 +3241,7 @@ fieldset[disabled]
   padding: 5px 10px;
   font-size: 17px;
   line-height: 1.5;
-  border-radius: 3px;
+  border-radius: 0;
 }
 
 select.input-sm, .input-group-sm > select.form-control,
@@ -3266,7 +3266,7 @@ select[multiple].input-sm,
   padding: 5px 10px;
   font-size: 17px;
   line-height: 1.5;
-  border-radius: 3px;
+  border-radius: 0;
 }
 
 .form-group-sm select.form-control {
@@ -3294,7 +3294,7 @@ select[multiple].input-sm,
   padding: 14px 16px;
   font-size: 25px;
   line-height: 1.33333;
-  border-radius: 6px;
+  border-radius: 0;
 }
 
 select.input-lg, .input-group-lg > select.form-control,
@@ -3319,7 +3319,7 @@ select[multiple].input-lg,
   padding: 14px 16px;
   font-size: 25px;
   line-height: 1.33333;
-  border-radius: 6px;
+  border-radius: 0;
 }
 
 .form-group-lg select.form-control {
@@ -4503,11 +4503,11 @@ tbody.collapse.in {
   font-size: 20px;
   font-weight: normal;
   line-height: 1;
-  color: #111;
+  color: #f5f5f5;
   text-align: center;
   background-color: #ddd;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 1px solid #505050;
+  border-radius: 0;
 }
 
 .input-group-addon.input-sm,
@@ -4515,7 +4515,7 @@ tbody.collapse.in {
 .input-group-sm > .input-group-btn > .input-group-addon.btn {
   padding: 5px 10px;
   font-size: 17px;
-  border-radius: 3px;
+  border-radius: 0;
 }
 
 .input-group-addon.input-lg,
@@ -4523,7 +4523,7 @@ tbody.collapse.in {
 .input-group-lg > .input-group-btn > .input-group-addon.btn {
   padding: 14px 16px;
   font-size: 25px;
-  border-radius: 6px;
+  border-radius: 0;
 }
 
 .input-group-addon input[type="radio"],
@@ -7146,7 +7146,7 @@ body > .body {
 
 .application .layout-row .layout-column {
   margin: 0;
-  padding: 8px 12px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -7158,7 +7158,7 @@ body > .body {
 
 .application .layout-row .layout-column .layout-cell {
   margin: 0;
-  padding: 0;
+  padding: 8px 12px;
   flex-basis: 0;
   flex-grow: 0;
 }
