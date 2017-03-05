@@ -30,11 +30,11 @@ let Selector = React.createClass({
 
                 this.props.playlist.setCurrentPlaylist(this.state.playlistId)
             }).bind(this)}>
-                <div className="form-group col-xs-8">
+                <div className="input-group">
                     <input type="playlist" className="form-control" placeholder="spotify:user:?:playlist:?" value={this.state.playlistId} onChange={this.handleChange} />
-                </div>
-                <div className="form-group col-xs-4">
-                    <button type="submit" className="btn btn-default">Save</button>
+                    <div className="input-group-btn">
+                        <button type="submit" className="btn btn-default">Save</button>
+                    </div>
                 </div>
             </form>
 
