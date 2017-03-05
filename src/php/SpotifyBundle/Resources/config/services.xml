@@ -12,6 +12,7 @@
     <services>
         <service id="spotify" class="Kore\Spotify\SpotifyBundle\Domain\Spotify">
             <argument type="service" id="spotify.session" />
+            <argument type="service" id="session" />
         </service>
 
         <service id="spotify.session" class="SpotifyWebAPI\Session">

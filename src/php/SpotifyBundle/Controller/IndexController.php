@@ -8,9 +8,11 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Route;
 
 use QafooLabs\MVC\TokenContext;
+use QafooLabs\MVC\RedirectRouteResponse;
 
 use Kore\Spotify\SpotifyBundle\Controller\Index\Context;
 use Kore\Spotify\SpotifyBundle\Domain\DbusResponseParser;
+use Kore\Spotify\SpotifyBundle\Domain\Session;
 
 class IndexController extends Controller
 {
@@ -29,17 +31,9 @@ class IndexController extends Controller
 
     public function tokensAction(Request $request)
     {
-        $session = new \SpotifyWebAPI\Session(
-            $this->getParameter('spotify.client.id'),
-            $this->getParameter('spotify.client.secret'),
-            $this->getParameter('spotify.redirect_url')
-        );
+        $spotify = $this->get('spotify');
+        $spotify->authentificate($request->get('code'));
 
-		$session->requestAccessToken($request->get('code'));
-
-        return [
-            'accessToken' => $session->getAccessToken(),
-            'refreshToken' => $session->getRefreshToken(),
-        ];
+        return new RedirectRouteResponse('spotify.frontend.index');
     }
 }

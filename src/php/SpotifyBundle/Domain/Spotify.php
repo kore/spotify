@@ -2,23 +2,34 @@
 
 namespace Kore\Spotify\SpotifyBundle\Domain;
 
-use SpotifyWebAPI\Session;
+use SpotifyWebAPI\Session as SpotifySession;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class Spotify
 {
-    private $session;
+    const SESSION_KEY = 'spotifySession';
 
-    public function __construct(Session $session)
+    private $authentificator;
+    private $session;
+    private $token;
+    private $api;
+
+    public function __construct(SpotifySession $authentificator, Session $session)
     {
+        $this->authentificator = $authentificator;
         $this->session = $session;
+        $this->token = $this->session->get(self::SESSION_KEY, null);
 
 		$this->api = new \SpotifyWebAPI\SpotifyWebAPI();
-        // $this->api->setAccessToken($accessToken);
+
+        if ($this->token) {
+            $this->api->setAccessToken($this->token->accessToken);
+        }
     }
 
     public function getAuthorizeUrl(): string
     {
-        return $this->session->getAuthorizeUrl([
+        return $this->authentificator->getAuthorizeUrl([
             'scopes' => [
                 'playlist-read-private',
                 'playlist-modify-private',
@@ -26,8 +37,23 @@ class Spotify
         ]);
     }
 
+    public function authentificate(string $code)
+    {
+		$this->authentificator->requestAccessToken($code);
+
+        $this->session->set(self::SESSION_KEY, new AccessToken([
+            'accessToken' => $this->authentificator->getAccessToken(),
+            'refreshToken' => $this->authentificator->getRefreshToken(),
+            'validUntil' => $this->authentificator->getTokenExpiration(),
+        ]));
+    }
+
     public function isAuthentificated(): bool
     {
+        if (!$this->token) {
+            return false;
+        }
+
         try {
             $this->me();
             return true;
@@ -38,6 +64,18 @@ class Spotify
 
     public function __call(string $method, array $arguments)
     {
+        if ($this->token->shallRefresh()) {
+            $this->authentificator->refreshAccessToken($this->token->refreshToken);
+
+            $this->token = new AccessToken([
+                'accessToken' => $this->authentificator->getAccessToken(),
+                'refreshToken' => $this->authentificator->getRefreshToken(),
+                'validUntil' => $this->authentificator->getTokenExpiration(),
+            ]);
+            $this->session->set(self::SESSION_KEY, $this->token);
+            $this->api->setAccessToken($this->token->accessToken);
+        }
+
         return call_user_func_array([$this->api, $method], $arguments);
     }
 }
