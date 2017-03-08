@@ -50,8 +50,6 @@ class Spotify
 
     public function isAuthentificated(): bool
     {
-        return true;
-
         if (!$this->token) {
             return false;
         }

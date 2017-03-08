@@ -46,6 +46,7 @@ class IndexController extends Controller
                 'hasClientConfiguration' => $hasClientConfiguration,
                 'isAuthentificated' => $isAuthentificated,
                 'authentifactionUrl' => $authentifactionUrl,
+                'playlists' => $this->getParameter('playlists') ?: [],
                 'user' => $user,
             ],
         ]);
