@@ -31,7 +31,7 @@ let App = React.createClass({
         }
 
         return (<div className="application">
-            <this.props.route.subcomponent {...this.props} />}
+            <this.props.route.subcomponent {...this.props} />
         </div>)
     },
 })
