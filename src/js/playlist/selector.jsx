@@ -1,8 +1,10 @@
 'use strict'
 
 import React from "react"
+import _ from "lodash"
 
 import PlaylistDecorator from "./decorator.jsx"
+import Router from '../router.js'
 
 let Selector = React.createClass({
     propTypes: {
@@ -11,7 +13,7 @@ let Selector = React.createClass({
 
     getInitialState: function () {
         return {
-            playlistId: '',
+            playlistId: _.head(_.toArray(Router.get().getSession().playlists)) || ''
         }
     },
 
@@ -33,7 +35,15 @@ let Selector = React.createClass({
                     <input type="playlist" className="form-control" placeholder="spotify:user:?:playlist:?"
                         value={this.state.playlistId} onChange={this.handleChange} />
                     <div className="input-group-btn">
-                        <button type="submit" className="btn btn-default">
+                    {_.map(Router.get().getSession().playlists, (function (id, name) {
+                        return (<button key={id} type="submit" className="btn btn-default"
+                            onClick={(function () {
+                                this.setState({ playlistId: id })
+                            }).bind(this)} title={name}>
+                            <span className="glyphicon glyphicon-music" />
+                        </button>)
+                    }).bind(this))}
+                        <button type="submit" className="btn btn-primary">
                             <span className="glyphicon glyphicon-play" />
                         </button>
                     </div>
@@ -48,16 +58,8 @@ let Selector = React.createClass({
                     playlist and select &quot;Copy Spotify URI&quot;.
                 </p>
             </div>) : (<div>
-                <div className="row">
-                    <div className="col-xs-8">
-                        <big className="bright">{this.props.playlist.data.name}</big>
-                        <p>{this.props.playlist.data.description}</p>
-                    </div>
-                    <div className="col-xs-4">
-                        <img src={this.props.playlist.data.images[0].url}
-                            className="img-responsive img-thumbnail pull-right" />
-                    </div>
-                </div>
+                <big className="bright">{this.props.playlist.data.name}</big>
+                <p>{this.props.playlist.data.description}</p>
             </div>)}
         </div>)
     },
