@@ -3,6 +3,7 @@
 import _ from 'lodash'
 
 import Api from '../api.js'
+import Router from '../router.js'
 
 let Playlist = function () {
     this.data = null
@@ -45,8 +46,12 @@ let Playlist = function () {
         }
 
         let queuePosition = _.findIndex(this.data.tracks.items, { track: { id: this.current } })
-        console.log(queuePosition, this.current)
         return this.data.tracks.items.slice(queuePosition, queuePosition + 10)
+    }
+
+    let playlistId = _.head(_.toArray(Router.get().getSession().playlists))
+    if (playlistId) {
+        this.setCurrentPlaylist(playlistId)
     }
 }
 

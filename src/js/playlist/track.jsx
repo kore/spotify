@@ -6,7 +6,7 @@ import _ from "lodash"
 let Track = React.createClass({
     propTypes: {
         track: React.PropTypes.object.isRequired,
-        current: React.PropTypes.string.isRequired,
+        current: React.PropTypes.string,
     },
 
     render: function () {
