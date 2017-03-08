@@ -33,7 +33,9 @@ let Selector = React.createClass({
                     <input type="playlist" className="form-control" placeholder="spotify:user:?:playlist:?"
                         value={this.state.playlistId} onChange={this.handleChange} />
                     <div className="input-group-btn">
-                        <button type="submit" className="btn btn-default">Save</button>
+                        <button type="submit" className="btn btn-default">
+                            <span className="glyphicon glyphicon-play" />
+                        </button>
                     </div>
                 </div>
             </form>

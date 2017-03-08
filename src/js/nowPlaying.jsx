@@ -40,7 +40,8 @@ let NowPlaying = React.createClass({
     interval: null,
 
     render: function () {
-        return (<div className="box now-playing">
+        return (<div>
+            <h1>Now Playing</h1>
             {!this.props.data ? null : <div>
                 <img src={this.props.data.song.result['mpris:artUrl']}
                     className="img-responsive img-thumbnail pull-right" />

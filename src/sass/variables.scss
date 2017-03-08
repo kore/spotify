@@ -41,7 +41,7 @@ $gray-verylight:        #eee;
 $gray-white:            #f5f5f5;
 $white:                 #fff;
 $black:                 $gray-base;
-$shadow:                $gray;
+$shadow:                $black;
 
 $brand-primary:         $primary-dark;
 $brand-success:         $primary;
@@ -176,7 +176,7 @@ $btn-font-weight:                normal;
 
 $btn-default-color:              $black;
 $btn-default-bg:                 $gray-lighter;
-$btn-default-border:             $btn-default-bg;
+$btn-default-border:             $gray-light;
 
 $btn-primary-color:              $white;
 $btn-primary-bg:                 $brand-primary;
@@ -228,7 +228,7 @@ $input-border-radius-small:      0;
 $input-border-focus:             $primary;
 
 //** Placeholder text color
-$input-color-placeholder:        $gray-lighter;
+$input-color-placeholder:        $gray-dark;
 
 //** Default `.form-control` height
 $input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2);

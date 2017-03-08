@@ -3,6 +3,7 @@
 import React from "react"
 
 import NowPlaying from './nowPlaying.jsx'
+import Controls from './controls.jsx'
 import PlaylistSelector from './playlist/selector.jsx'
 import SearchablePlaylist from './playlist/searchable.jsx'
 import Queue from './playlist/queue.jsx'
@@ -12,8 +13,10 @@ let Overview = React.createClass({
         return (<main className="layout-row">
             <div className="layout-column">
                 <div className="layout-cell">
-                    <h1>Now Playing</h1>
                     <NowPlaying />
+                </div>
+                <div className="layout-cell">
+                    <Controls />
                 </div>
                 <div className="layout-cell scroll" style={{ overflowY: 'hidden' }}>
                     <Queue />
