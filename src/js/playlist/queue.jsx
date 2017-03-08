@@ -16,7 +16,6 @@ let Queue = React.createClass({
             return null
         }
 
-        console.log(this.props.playlist.data)
         let tracks = this.props.playlist.getQueue()
 
         return (<div>

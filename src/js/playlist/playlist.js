@@ -36,7 +36,7 @@ let Playlist = function () {
     }
 
     this.setCurrentSong = function (id) {
-        this.current = id.replace('spotify:track:', '')
+        this.current = id
         this.trigger()
     }
 
@@ -45,7 +45,7 @@ let Playlist = function () {
             return []
         }
 
-        let queuePosition = _.findIndex(this.data.tracks.items, { track: { id: this.current } })
+        let queuePosition = _.findIndex(this.data.tracks.items, { track: { uri: this.current } })
         return this.data.tracks.items.slice(queuePosition, queuePosition + 10)
     }
 
