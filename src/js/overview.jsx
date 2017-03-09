@@ -7,6 +7,7 @@ import Controls from './controls.jsx'
 import PlaylistSelector from './playlist/selector.jsx'
 import SearchablePlaylist from './playlist/searchable.jsx'
 import Queue from './playlist/queue.jsx'
+import Search from './search.jsx'
 
 let Overview = React.createClass({
     render: function () {
@@ -32,9 +33,7 @@ let Overview = React.createClass({
             </div>
             <div className="layout-column">
                 <div className="layout-cell">
-                    <h1>Search</h1>
-                    <ul className="playlist list-unstyled">
-                    </ul>
+                    <Search />
                 </div>
             </div>
         </main>)

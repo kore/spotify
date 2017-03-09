@@ -14,7 +14,7 @@ let Api = function () {
         state.loading = true
         jQuery.ajax({
             method: method || "GET",
-            url: Router.get().path(route, parameters),
+            url: Router.get().fullPath(route, parameters),
             data: body ? JSON.stringify(body) : null,
             contentType: 'application/json',
             dataType: 'json',

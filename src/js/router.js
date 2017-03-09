@@ -53,9 +53,7 @@ let Router = function (history, routes, session) {
     this.query = function (route, parameters) {
         let allParameters = _.extend(this.parameters, parameters || {})
 
-        // @HACK: We should make sure we do not carry around all parameters all the time
-        let keys = _.union(this.getRouteKeys(route), ['class', 'pupil', 'test', 'subject', 'grades'])
-        let queryKeys = _.difference(_.keys(allParameters), keys)
+        let queryKeys = _.difference(_.keys(allParameters), this.getRouteKeys(route))
         return _.pick(allParameters, queryKeys)
     }
 

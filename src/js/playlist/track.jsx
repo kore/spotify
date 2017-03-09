@@ -11,14 +11,23 @@ let Track = React.createClass({
         highlight: React.PropTypes.string,
     },
 
+    getDefaultProps: function () {
+        return {
+            current: null,
+            highlight: '',
+        }
+    },
+    
+
     render: function () {
+        let highlights = this.props.highlight.split(/[ \t\n\r,;]+/)
         return (<li className={this.props.track.uri === this.props.current ? 'current' : ''}>
             <span className="bright">
-                <Highlighter searchWords={[this.props.highlight]}
+                <Highlighter searchWords={highlights}
                     textToHighlight={this.props.track.name} />
             </span><br />
             <span className="dark">
-                by <Highlighter searchWords={[this.props.highlight]}
+                by <Highlighter searchWords={highlights}
                     textToHighlight={_.map(this.props.track.artists, 'name').join(', ')} />
             </span>
         </li>)

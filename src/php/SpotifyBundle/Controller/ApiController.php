@@ -58,4 +58,15 @@ class ApiController extends Controller
 
         return new JsonResponse($spotify->getUserPlaylist($match['user'], $match['playlist']));
     }
+
+    public function searchAction(Request $request)
+    {
+        return new JsonResponse(
+            $this->get('spotify')->search(
+                $request->get('query'),
+                'track',
+                ['limit' => 10]
+            )
+        );
+    }
 }

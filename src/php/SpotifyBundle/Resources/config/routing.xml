@@ -31,4 +31,8 @@
     <route id="spotify.api.playlist" path="/api/playlist/{playlist}">
         <default key="_controller">SpotifySpotifyBundle:Api:playlist</default>
     </route>
+
+    <route id="spotify.api.search" path="/api/search">
+        <default key="_controller">SpotifySpotifyBundle:Api:search</default>
+    </route>
 </routes>
