@@ -56,6 +56,14 @@ let Search = React.createClass({
                     </span>
                     <input type="text" className="form-control" placeholder="Search"
                         value={this.state.search} onChange={this.handleChange} />
+                    <div className="input-group-btn">
+                        <a className="btn btn-danger"
+                            onClick={(function () {
+                                this.setState({ search: '', result: null })
+                            }).bind(this)}>
+                            <span className="glyphicon glyphicon-remove" />
+                        </a>
+                    </div>
                 </div>
             </form>
 

@@ -36,6 +36,14 @@ let SearchablePlaylist = React.createClass({
                     </span>
                     <input type="text" className="form-control" placeholder="Filter"
                         value={this.state.filter} onChange={this.handleChange} />
+                    <div className="input-group-btn">
+                        <a className="btn btn-danger"
+                            onClick={(function () {
+                                this.setState({ filter: '' })
+                            }).bind(this)}>
+                            <span className="glyphicon glyphicon-remove" />
+                        </a>
+                    </div>
                 </div>
             </form>
 
