@@ -49,10 +49,10 @@ let SearchablePlaylist = React.createClass({
                     }).bind(this)
                 ),
                 (function (track) {
-                    return <Track key={track.track.id}
+                    return (<Track key={track.track.id}
                         track={track.track}
                         current={this.props.playlist.current}
-                        highlight={this.state.filter} />
+                        highlight={this.state.filter} />)
                 }).bind(this)
             )}
             </ul>

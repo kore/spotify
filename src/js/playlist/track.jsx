@@ -17,7 +17,6 @@ let Track = React.createClass({
             highlight: '',
         }
     },
-    
 
     render: function () {
         let highlights = this.props.highlight.split(/[ \t\n\r,;]+/)

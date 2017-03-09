@@ -63,9 +63,9 @@ let Search = React.createClass({
             {!this.state.result ? null : _.map(
                 this.state.result.tracks.items,
                 (function (track) {
-                    return <Track key={track.id}
+                    return (<Track key={track.id}
                         track={track}
-                        highlight={this.state.search} />
+                        highlight={this.state.search} />)
                 }).bind(this)
             )}
             </ul>
