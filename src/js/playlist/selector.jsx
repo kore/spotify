@@ -13,7 +13,7 @@ let Selector = React.createClass({
 
     getInitialState: function () {
         return {
-            playlistId: _.head(_.toArray(Router.get().getSession().playlists)) || ''
+            playlistId: _.head(_.toArray(Router.get().getSession().playlists)) || '',
         }
     },
 

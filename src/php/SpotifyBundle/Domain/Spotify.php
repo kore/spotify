@@ -20,7 +20,7 @@ class Spotify
         $this->session = $session;
         $this->token = $this->session->get(self::SESSION_KEY, null);
 
-		$this->api = new \SpotifyWebAPI\SpotifyWebAPI();
+        $this->api = new \SpotifyWebAPI\SpotifyWebAPI();
 
         if ($this->token) {
             $this->api->setAccessToken($this->token->accessToken);
@@ -39,7 +39,7 @@ class Spotify
 
     public function authentificate(string $code)
     {
-		$this->authentificator->requestAccessToken($code);
+        $this->authentificator->requestAccessToken($code);
 
         $this->session->set(self::SESSION_KEY, new AccessToken([
             'accessToken' => $this->authentificator->getAccessToken(),

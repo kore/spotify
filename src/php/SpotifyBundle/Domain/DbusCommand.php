@@ -11,7 +11,6 @@ class DbusCommand
     public function __construct(DbusResponseParser $parser)
     {
         $this->parser = $parser;
-
     }
 
     public function command(string $command)
