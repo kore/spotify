@@ -11,6 +11,23 @@
     <route id="spotify.api.currentSong" path="/api/currentSong">
         <default key="_controller">SpotifySpotifyBundle:Index:currentSong</default>
     </route>
+
+    <route id="spotify.api.play" path="/api/control/play" methods="POST">
+        <default key="_controller">SpotifySpotifyBundle:Index:play</default>
+    </route>
+
+    <route id="spotify.api.pause" path="/api/control/pause" methods="POST">
+        <default key="_controller">SpotifySpotifyBundle:Index:pause</default>
+    </route>
+
+    <route id="spotify.api.next" path="/api/control/next" methods="POST">
+        <default key="_controller">SpotifySpotifyBundle:Index:next</default>
+    </route>
+
+    <route id="spotify.api.previous" path="/api/control/previous" methods="POST">
+        <default key="_controller">SpotifySpotifyBundle:Index:previous</default>
+    </route>
+
     <route id="spotify.api.playlist" path="/api/playlist/{playlist}">
         <default key="_controller">SpotifySpotifyBundle:Api:playlist</default>
     </route>

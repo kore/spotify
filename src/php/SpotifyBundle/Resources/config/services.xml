@@ -15,6 +15,13 @@
             <argument type="service" id="session" />
         </service>
 
+        <service id="spotify.dbus.command" class="Kore\Spotify\SpotifyBundle\Domain\DbusCommand">
+            <argument type="service" id="spotify.dbus.parser" />
+        </service>
+
+        <service id="spotify.dbus.parser" class="Kore\Spotify\SpotifyBundle\Domain\DbusResponseParser">
+        </service>
+
         <service id="spotify.session" class="SpotifyWebAPI\Session">
             <argument>%spotify.client.id%</argument>
             <argument>%spotify.client.secret%</argument>

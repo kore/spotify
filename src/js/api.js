@@ -22,7 +22,9 @@ let Api = function () {
                 state.loading = false
                 state.error = null
 
-                callback(data)
+                if (callback) {
+                    callback(data)
+                }
             }).bind(this),
             error: (function (response) {
                 if (response.responseJSON &&
