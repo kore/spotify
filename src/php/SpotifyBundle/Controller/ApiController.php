@@ -14,6 +14,40 @@ use Kore\Spotify\SpotifyBundle\Domain\DbusResponseParser;
 
 class ApiController extends Controller
 {
+    public function currentSongAction()
+    {
+        $this->get('spotify')->refresh();
+        return new JsonResponse(
+            array(
+                'song' => $this->get('spotify.dbus.command')->query(),
+            )
+        );
+    }
+
+    public function playAction()
+    {
+        $this->get('spotify.dbus.command')->command('Play');
+        return new JsonResponse(['ok' => true]);
+    }
+
+    public function pauseAction()
+    {
+        $this->get('spotify.dbus.command')->command('Pause');
+        return new JsonResponse(['ok' => true]);
+    }
+
+    public function nextAction()
+    {
+        $this->get('spotify.dbus.command')->command('Next');
+        return new JsonResponse(['ok' => true]);
+    }
+
+    public function previousAction()
+    {
+        $this->get('spotify.dbus.command')->command('Previous');
+        return new JsonResponse(['ok' => true]);
+    }
+
     public function playlistAction(string $playlist)
     {
         $spotify = $this->get('spotify');

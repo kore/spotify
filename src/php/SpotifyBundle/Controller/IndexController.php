@@ -16,40 +16,6 @@ use Kore\Spotify\SpotifyBundle\Domain\Session;
 
 class IndexController extends Controller
 {
-    public function currentSongAction()
-    {
-        $command = $this->get('spotify.dbus.command');
-        return new JsonResponse(
-            array(
-                'song' => $command->query(),
-            )
-        );
-    }
-
-    public function playAction()
-    {
-        $this->get('spotify.dbus.command')->command('Play');
-        return new JsonResponse(['ok' => true]);
-    }
-
-    public function pauseAction()
-    {
-        $this->get('spotify.dbus.command')->command('Pause');
-        return new JsonResponse(['ok' => true]);
-    }
-
-    public function nextAction()
-    {
-        $this->get('spotify.dbus.command')->command('Next');
-        return new JsonResponse(['ok' => true]);
-    }
-
-    public function previousAction()
-    {
-        $this->get('spotify.dbus.command')->command('Previous');
-        return new JsonResponse(['ok' => true]);
-    }
-
     public function tokensAction(Request $request)
     {
         $spotify = $this->get('spotify');
