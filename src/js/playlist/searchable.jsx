@@ -40,12 +40,21 @@ let SearchablePlaylist = React.createClass({
             </form>
 
             <ul className="playlist list-unstyled">
-            {_.map(this.props.playlist.data.tracks.items, (function (track) {
-                return <Track key={track.track.id}
-                    track={track.track}
-                    current={this.props.playlist.current}
-                    highlight={this.state.filter} />
-            }).bind(this))}
+            {_.map(
+                _.filter(
+                    this.props.playlist.data.tracks.items,
+                    (function (track) {
+                        let searchString = track.track.name + _.map(track.track.artists, 'name').join(' ')
+                        return searchString.toLowerCase().indexOf(this.state.filter.toLowerCase()) !== -1
+                    }).bind(this)
+                ),
+                (function (track) {
+                    return <Track key={track.track.id}
+                        track={track.track}
+                        current={this.props.playlist.current}
+                        highlight={this.state.filter} />
+                }).bind(this)
+            )}
             </ul>
         </div>)
     },
