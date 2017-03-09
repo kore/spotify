@@ -62,7 +62,7 @@ class Spotify
         }
     }
 
-    public function __call(string $method, array $arguments)
+    public function refresh()
     {
         if ($this->token->shallRefresh()) {
             $this->authentificator->refreshAccessToken($this->token->refreshToken);
@@ -75,7 +75,26 @@ class Spotify
             $this->session->set(self::SESSION_KEY, $this->token);
             $this->api->setAccessToken($this->token->accessToken);
         }
+    }
 
+    public function getUserPlaylist(string $user, string $playlist, array $parameters = []): \StdClass
+    {
+        $this->refresh();
+        $result = $this->api->getUserPlaylist($user, $playlist, $parameters);
+
+        for ($offset = $result->tracks->limit; $offset < $result->tracks->total; $offset += $result->tracks->limit) {
+            $result->tracks->items = array_merge(
+                $result->tracks->items,
+                $this->api->getUserPlaylistTracks($user, $playlist, ['offset' => $offset])->items
+            );
+        }
+
+        return $result;
+    }
+
+    public function __call(string $method, array $arguments)
+    {
+        $this->refresh();
         return call_user_func_array([$this->api, $method], $arguments);
     }
 }

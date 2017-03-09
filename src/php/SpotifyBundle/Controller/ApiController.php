@@ -56,9 +56,6 @@ class ApiController extends Controller
             throw new \OutOfBoundsException("Invalid playlist specifier");
         }
 
-        $playlist = $spotify->getUserPlaylist($match['user'], $match['playlist']);
-        // @TODO: If we reached the limit of 100 tracks we must paginate
-
-        return new JsonResponse($playlist);
+        return new JsonResponse($spotify->getUserPlaylist($match['user'], $match['playlist']));
     }
 }
