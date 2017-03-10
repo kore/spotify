@@ -7,6 +7,37 @@ Party Player interface for Spotify. Does not replace the current song ever.
 Only works on Linux right now, because the current song information can only be
 requested via DBUS.
 
+Features
+========
+
+- [x] Show currently playing song (Dbus, Linux)
+- [x] Simple playback controls (Dbus, Linux)
+- [x] Show currently queue depending on current playlist with disabled
+  shuffling
+- [x] Search for tracks on Spotify
+- [x] Filtered view of songs in playlist
+- [ ] Add songs to playlist
+- [ ] Allow resorting of playlist
+
+Known Limitations
+-----------------
+
+There is no way I know to retrieve the currently active playlist (using Dbus
+or REST) so that we cannot automatically select the "active" playlist. The user
+must specify the current playlist using the Spotify playlist URI.
+
+The REST call for returning all playlists of the current user always returns an
+empty list so that we cannot use this as a base for playlist selction. As a
+workaround you may specify playlists in the `environment.local` file, like::
+
+    playlists[Piano]=spotify:user:spotify:playlist:63dDpdoVHvx5RkK87g4LKk
+    playlists[Foo]=spotify:user:<user>:playlist:<id>
+    playlists[Bar]=spotify:user:<user>:playlist:<id>
+
+We cannot modify the actual playback queue. Thus we rely on a Spotify client
+running in the background and control it via Dbus. The client in the background
+*must not* have shuffle enabled for this to work in a sane way.
+
 Building & Developing The Software
 ==================================
 
